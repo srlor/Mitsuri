@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <title>رسالة رومانسية</title>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <style>
@@ -92,6 +93,25 @@
       100% {
         transform: translateY(-10vh) translateX(30px) rotate(45deg);
         opacity: 0;
+      }
+    }
+    .ring-container {
+      position: relative;
+      margin-top: 20px;
+    }
+    .ring-icon {
+      font-size: 100px;
+      color: gold;
+      animation: showRing 1s ease-in-out;
+    }
+    @keyframes showRing {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   </style>
@@ -209,6 +229,9 @@
       const content = document.getElementById("content");
       content.innerHTML = `
         <h1>إذا قبلتي الزواج بلوفي، ارسلي له لقطة الشاشة هذا ❤️</h1>
+        <div class="ring-container">
+          <i class="fas fa-ring ring-icon"></i>
+        </div>
       `;
     }
   </script>
