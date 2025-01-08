@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ميتسوري</title>
+    <title>احبك ميتسوري</title>
     <link rel="stylesheet" href="رواية.css">
 </head>
 <body>
@@ -90,7 +90,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: auto; /* السماح بالتمرير للأعلى والأسفل */
+    overflow: hidden;
 }
 
 /* تنسيق الحاوية */
@@ -107,40 +107,42 @@ body {
 /* مربع الشخصية */
 .character-box {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
     padding: 15px;
-    background: linear-gradient(135deg, #d4f3e2, #a8e6cf); /* خلفية متدرجة */
+    background: linear-gradient(135deg, #d4f3e2, #a8e6cf);
     border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* تأثير الظل */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .character-box:hover {
-    transform: scale(1.05); /* تكبير عند التمرير */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* تكبير الظل */
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
 .character-box img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 10px;
     border: 3px solid white;
     transition: transform 0.3s ease;
 }
 
 .character-box img:hover {
-    transform: rotate(10deg) scale(1.1); /* دوران وتكبير عند التمرير */
+    transform: rotate(10deg) scale(1.1);
 }
 
 .character-box .info {
     flex-grow: 1;
+    text-align: left;
 }
 
 .character-box .name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #333;
 }
@@ -149,33 +151,33 @@ body {
     text-align: right;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* محاذاة النصوص لليمين */
+    align-items: flex-end;
 }
 
 /* تنسيق عنوان الفصل */
 .character-box .chapter-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     color: #2c7f4c;
-    margin-bottom: 5px; /* مسافة بين العنوان والرقم */
+    margin-bottom: 5px;
 }
 
 /* تنسيق رقم الفصل */
 .character-box .chapter-number {
-    font-size: 1.2rem; /* حجم أصغر */
+    font-size: 1rem;
     font-weight: bold;
     color: white;
-    background: radial-gradient(circle, #1b5e20, #4caf50); /* خلفية دائرية متدرجة */
-    padding: 5px 15px; /* تقليل الحواف الداخلية */
-    border-radius: 20px; /* إطار دائري ناعم */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* تأثير الظل */
+    background: radial-gradient(circle, #1b5e20, #4caf50);
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.2);
     transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .character-box .chapter-number:hover {
-    background: radial-gradient(circle, #2e7d32, #66bb6a); /* تغيير لون الخلفية عند التمرير */
-    transform: translateY(-3px) scale(1.1); /* تحريك الرقم لأعلى مع تكبير خفيف */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), inset 0 3px 6px rgba(255, 255, 255, 0.3); /* تأثير ظل إضافي */
+    background: radial-gradient(circle, #2e7d32, #66bb6a);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), inset 0 3px 6px rgba(255, 255, 255, 0.3);
 }
 
 /* مربع القصة */
@@ -184,20 +186,21 @@ body {
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 /* مربع الأزرار */
 .buttons-box {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
 }
 
 .buttons-box button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 8px 15px;
+    font-size: 0.9rem;
     border: none;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
@@ -210,6 +213,33 @@ body {
     background: rgba(255, 255, 255, 0.5);
     color: #1e3c72;
 }
+
+/* استعلامات الوسائط للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .character-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .character-box img {
+        margin: 0 auto 10px;
+    }
+
+    .character-box .info,
+    .character-box .chapter {
+        text-align: center;
+    }
+
+    .character-box .chapter-number {
+        margin: 10px auto;
+    }
+}
+
 </style>
     <script>
         function toggleButtons(option) {
