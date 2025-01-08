@@ -1,239 +1,228 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <title>احبك</title>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding: 20px;
-      margin: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    h1, p {
-      margin: 10px 0;
-      line-height: 1.8;
-      font-size: 1.2rem;
-    }
-    button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      margin: 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    button:hover {
-      background-color: #218838;
-      transform: scale(1.05);
-    }
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    .hearts {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: -1;
-    }
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      transform: rotate(45deg);
-      animation: floatA 10s linear infinite;
-      opacity: 0.8;
-    }
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      border-radius: 50%;
-    }
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-    @keyframes floatA {
-      0% {
-        transform: translateY(100vh) translateX(0) rotate(45deg);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translateY(50vh) translateX(-30px) rotate(45deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) translateX(30px) rotate(45deg);
-        opacity: 0;
-      }
-    }
-    .ring-container {
-      position: relative;
-      margin-top: 20px;
-    }
-    .ring-icon {
-      font-size: 100px;
-      color: gold;
-      animation: showRing 1s ease-in-out;
-    }
-    @keyframes showRing {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصة تفاعلية</title>
+    <link rel="stylesheet" href="رواية.css">
 </head>
 <body>
-  <div id="particles-js"></div>
-  <div id="content">
-    <h1>مرحبًا بكِ</h1>
-    <button onclick="showMessage1()">انقر هنا</button>
-  </div>
+    <div class="container">
+     <!-- مربع الشخصية -->
+<div class="character-box">
+    <img src="ميتسوري.svg" alt="الشخصية">
+    <div class="info">
+        <div class="name">ميتسوري</div>
+    </div>
+    <div class="chapter">
+        <div class="chapter-title">عنوان الفصل</div>
+        <div class="chapter-number">1</div>
+    </div>
+</div>
 
-  <div class="hearts" id="hearts"></div>
 
-  <script>
-    // Load particles.js
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 5 },
-        },
-        opacity: { value: 0.5, random: false },
-        size: { value: 3, random: true },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.4,
-          width: 1,
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 },
-        },
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" },
-          resize: true,
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
-          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 },
-        },
-      },
-      retina_detect: true,
-    });
+  <!-- مربع النصوص الرئيسي -->
+<div class="story-box" id="story-box-main">
+    <p>في معتم الليالي الممطرة وعلى متن سفينة الفايكنج في مقدمتها الشامخة، عاشت ميتسوري حياة مليئة بالحروب والظلام. لم تكن مهمتها في المعارك القتال، بل التأكد من موت الناجين. كلامها قليل، وعيونها ينعكس فيها مهب الندم والحسرة.</p>
+    <p>في أحد الأيام وبعد انتهاء هجوم عنيف على قرية هادئة، ترك الفايكنج خلفهم دمارًا وجثثًا متناثرة. تسللت ميتسوري في الزقاق بصمت، تفتش في المنازل وتقضي على من لم تزل فيه أنفاس الحياة.</p>
+    <p>بينما كانت تفتش في منزل صغير، وجدت طفلة صغيرة مختبئة ووالدها يحتضر بين الحياة والموت. دنت ميتسوري من الرجل وأنهت حياته دون رحمة. نظرت للطفلة وترددت لحظة، ثم غادرت المنزل وقلبها يملؤه الأسى.</p>
+    <p>عادت ميتسوري للسفينة والآلام تمزق داخلها. كما هو المعتاد، قام الطاقم بالسخرية منها واحتقارها. عندما خلدت إلى غرفتها الصغيرة، انهارت في البكاء وقلبها يصرخ ندمًا وحسرة.</p>
+    <div class="buttons-box">
+        <button onclick="toggleButtons('A')">تغادر القرية وتبحث عن حياة جديدة</button>
+        <button onclick="toggleButtons('B')">تقرر البقاء في القرية ومساعدة الناجين</button>
+    </div>
+</div>
 
-    function showMessage1() {
-      const content = document.getElementById("content");
-      content.innerHTML = `
-        <h1>هل تعلمين؟</h1>
-        <p>هل تعلمين أن القطط تنام حوالي 16 ساعة في اليوم؟</p>
-        <button onclick="showRomanticMessage()">مواصلة</button>
-      `;
-    }
+<!-- فرع تغادر القرية وتبحث عن حياة جديدة -->
+<div class="story-box" id="story-box-A" style="display: none;">
+    <p>ميبسوري تغادر القرية وتبدأ رحلة طويلة. أثناء رحلتها، تصادف مجموعة من المسافرين الذين يحتضنونها كواحدة منهم. تبدأ ببطء في اكتشاف فرصة ثانية للحياة، ولكنها تواجه تحديات أخلاقية عندما تتقاطع طرقهم مع قرى أخرى تعرضت لهجمات مماثلة.</p>
+    <div class="buttons-box">
+        <button onclick="toggleButtons('1')">نعم، تسعى للتوبة</button>
+        <button onclick="toggleButtons('2')">لا، تخشى أن تفقد ثقتهم</button>
+    </div>
+</div>
 
-    function showRomanticMessage() {
-      const content = document.getElementById("content");
-      content.innerHTML = `
-        <h1>أنتِ أجمل ما رأت عيني ❤️</h1>
-        <p>
-          كل لحظة أقضيها معكِ تجعلني أشعر وكأنني الشخص الأكثر حظًا في العالم. 
-          أنتِ لست فقط مصدر السعادة في حياتي، بل أنتِ حياتي بأكملها.
-        </p>
-        <button onclick="showHearts()">مواصلة</button>
-      `;
-    }
+<!-- فرع البقاء في القرية -->
+<div class="story-box" id="story-box-B" style="display: none;">
+    <p>ميبسوري تقرر البقاء في القرية. أثناء جمع الموارد، تصادف ناجيًا جديدًا: رجل يدعى كاجي، يحمل جروحًا عميقة ولكنه يتمتع بعزيمة قوية. يبدأ كاجي بمشاركتها خطته لإعادة بناء القرية.</p>
+    <div class="buttons-box">
+        <button onclick="toggleButtons('1')">نعم، ترى فيه فرصة للتوبة</button>
+        <button onclick="toggleButtons('2')">لا، تخشى أن يكتشف ماضيها</button>
+    </div>
+</div>
 
-    function showHearts() {
-      const content = document.getElementById("content");
-      const hearts = document.getElementById("hearts");
+<!-- فرع تسعى للتوبة -->
+<div class="story-box" id="story-box-1" style="display: none;">
+    <p>ميبسوري تقرر التوبة وتتعاون مع المجموعة لبناء حياة جديدة. مع مرور الوقت، تبدأ في التعرف على طرق السلام الداخلية وتكتشف قوة جديدة في نفسها.</p>
+    <div class="buttons-box">
+        <button onclick="toggleButtons('end')">نهاية سعيدة! تجد السلام الداخلي وتبدأ حياة جديدة.</button>
+    </div>
+</div>
 
-      // Add heart effects
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 4 + 8 + "s";
-        hearts.appendChild(heart);
+<!-- فرع تخشى أن تفقد ثقتهم -->
+<div class="story-box" id="story-box-2" style="display: none;">
+    <p>ميبسوري تخشى أن يفقدها الآخرون وتظل تكتم ماضيها. كلما تقدمت الرحلة، زاد الصراع الداخلي معها، ولكنها لا تجد الراحة في الهروب من الحقيقة.</p>
+    <div class="buttons-box">
+        <button onclick="toggleButtons('end')">نهاية غير حاسمة! تظل ميتسوري في صراع داخلي دائم.</button>
+    </div>
+</div>
 
-        setTimeout(() => heart.remove(), 12000);
-      }
+<!-- النهاية -->
+<div class="story-box" id="story-box-end" style="display: none;">
+    <p>لقد وصلت إلى نهاية الفصل الأول من مغامرتك! لا تقلق، الفصل الثاني قريبًا!</p>
+    <div class="buttons-box">
+        <button onclick="toggleButtons('main')">العودة للبداية</button>
+    </div>
+</div>
 
-      content.innerHTML = `
-        <h1>هل تقبلين أن تتزوجي إنسانًا بدل البوتات (لوفي)؟</h1>
-        <button onclick="reject()">لا، لا أرغب بالزواج منك</button>
-        <button onclick="accept()">نعم، أقبل الزواج بإنسان</button>
-      `;
-    }
 
-    function reject() {
-      const content = document.getElementById("content");
-      content.innerHTML = `
-        <h1>كان هذا محبطًا حقًا!</h1>
-        <p>أتمنى لكِ يومًا سعيدًا بالرغم من ذلك.</p>
-      `;
-    }
+        
+    </div>
+<style>
+/* إعدادات عامة */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
 
-    function accept() {
-      const content = document.getElementById("content");
-      content.innerHTML = `
-        <h1>إذا قبلتي الزواج بلوفي، ارسلي له لقطة الشاشة هذا ❤️</h1>
-        <div class="ring-container">
-          <i class="fas fa-ring ring-icon"></i>
-        </div>
-      `;
-    }
-  </script>
+/* تنسيق الحاوية */
+.container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* مربع الشخصية */
+.character-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #d4f3e2, #a8e6cf); /* خلفية متدرجة */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* تأثير الظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-box:hover {
+    transform: scale(1.05); /* تكبير عند التمرير */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* تكبير الظل */
+}
+
+.character-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid white;
+    transition: transform 0.3s ease;
+}
+
+.character-box img:hover {
+    transform: rotate(10deg) scale(1.1); /* دوران وتكبير عند التمرير */
+}
+
+.character-box .info {
+    flex-grow: 1;
+}
+
+.character-box .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.character-box .chapter {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* محاذاة النصوص لليمين */
+}
+
+/* تنسيق عنوان الفصل */
+.character-box .chapter-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c7f4c;
+    margin-bottom: 5px; /* مسافة بين العنوان والرقم */
+}
+
+/* تنسيق رقم الفصل */
+.character-box .chapter-number {
+    font-size: 1.2rem; /* حجم أصغر */
+    font-weight: bold;
+    color: white;
+    background: radial-gradient(circle, #1b5e20, #4caf50); /* خلفية دائرية متدرجة */
+    padding: 5px 15px; /* تقليل الحواف الداخلية */
+    border-radius: 20px; /* إطار دائري ناعم */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* تأثير الظل */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.character-box .chapter-number:hover {
+    background: radial-gradient(circle, #2e7d32, #66bb6a); /* تغيير لون الخلفية عند التمرير */
+    transform: translateY(-3px) scale(1.1); /* تحريك الرقم لأعلى مع تكبير خفيف */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), inset 0 3px 6px rgba(255, 255, 255, 0.3); /* تأثير ظل إضافي */
+}
+
+/* مربع القصة */
+.story-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* مربع الأزرار */
+.buttons-box {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.buttons-box button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons-box button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #1e3c72;
+}
+</style>
+    <script>
+        function toggleButtons(option) {
+            // إخفاء كل القصص الحالية
+            const allStories = document.querySelectorAll('.story-box');
+            allStories.forEach(story => {
+                story.style.display = 'none';
+            });
+    
+            // إظهار القصة المختارة بناءً على الخيار
+            document.getElementById('story-box-' + option).style.display = 'block';
+        }
+    </script>
+    <script src="رواية.js"></script>
 </body>
 </html>
